@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Profile from './components/profile';
+import { useAuth0 } from '@auth0/auth0-react'
+import NavBar from './components/navBar';
+
 
 function App() {
+
+  const {user,isAuthenticated, isLoading} = useAuth0()
+
+  if (isLoading) return <h1>Cargando...</h1>
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+      
+      {
+        isAuthenticated ?
+        <h1>Bienvenido {user.given_name}</h1>  
+        :
+        <h1>Inicia Sesion y explora al maximo</h1>
+      }
+      <Profile/>
+
     </div>
   );
 }
