@@ -42,7 +42,7 @@ function NavBar() {
     <AppBar position="static" color='success'>
       <Container maxWidth="xl" spacing={2}>
         <Toolbar disableGutters >
-        <Avatar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} variant="square" src='https://i.ibb.co/whtfXgN/IMG-3702-2.jpg'/>
+        <Avatar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} variant="square" src='https://i.ibb.co/dgWyTyb/LogoFind.png'/>
           <Typography
             variant="h6"
             noWrap
@@ -58,7 +58,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            FindTequila
+            Development-Net
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -115,17 +115,7 @@ function NavBar() {
           >
             FindTequila
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
 
           <Box sx={{ flexGrow: 0 }}>
             
