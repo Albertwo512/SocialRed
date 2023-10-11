@@ -10,18 +10,37 @@ const CLIENT_SECRET = "cb2011b976f447abb96bf847febef01d";
 
 function Loginspotify() {
   const [searchInput, setSearchInput] = useState("");
+  const [accessToken, setAccessToken] = useState("");
 
   useEffect(() => {
   
     var authParameters = {
-      methods: "POST",
+      method: "POST",
       headers: {
         'content-type': 'application/x-www-form-urlencoded'
+      },
+      body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+    }
+    fetch('https://accounts.spotify.com/api/token', authParameters )
+    .then(result => result.json())
+    .then(data => setAccessToken(data.access_token,))
+  },[])
+
+  async function search() {
+    console.log('Searching ' + searchInput);
+
+    var artistParameters = {
+      method: 'GET',
+      header: {
+        'content-type': 'application/json',
+        'authorization': 'Bearer ' + accessToken
       }
     }
-    fetch('https://accounts.spotify.com/api/token', )
-  },[])
-  
+
+    var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', artistParameters)
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }
   return (
     <div>
       <Container>
@@ -30,13 +49,13 @@ function Loginspotify() {
          placeholder='Search Artists...'
          onKeyDown={ event => {
         if (event.key === "Enter") {
-          console.log("Pressed button");
+          search();
         }
        }}
-       onChange={event => searchInput(event.target.value)}
+       onChange={event => setSearchInput(event.target.value)}
     >
         </FormControl>
-        <button onClick={()=> console.log("Hello")} class="button-85" role="button">Search</button>
+        <button onClick={search} className="button-85" role="button">Search</button>
         </InputGroup>
       </Container>
       <Container>
