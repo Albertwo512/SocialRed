@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
+import './buttons.css';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -15,13 +16,13 @@ import ProfilePicture from './profilePicture';
 import { useAuth0 } from '@auth0/auth0-react'
 import { Avatar } from '@mui/material';
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Logout'];
+const pages = ["hello"]
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const { logout, isAuthenticated, user } = useAuth0()
+  const { logout, isAuthenticated, user, loginWithRedirect } = useAuth0()
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -39,7 +40,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static" color='success'>
+    <AppBar position="static" color='primary'>
       <Container maxWidth="xl" spacing={2}>
         <Toolbar disableGutters >
         <Avatar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} variant="square" src='https://i.ibb.co/dgWyTyb/LogoFind.png'/>
@@ -62,16 +63,14 @@ function NavBar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+          {
+        isAuthenticated ?
+        <Typography variant='h5'>{user.given_name}</Typography>  
+        :
+        <button onClick={() => loginWithRedirect()} className="button-87" role="button">Login</button>
+        
+      }
+          
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -113,7 +112,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            FindTequila
+            Dev-Net
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
 
