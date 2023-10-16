@@ -4,17 +4,15 @@ import React from 'react';
 
 function PreIndex() {
   return (
-    <div>
-      <Typography variant='h1'>
-        Welcome and Good day Sr.
-        
-      </Typography>
-      <Typography variant='h2'>
-        You're not singnig
-        Please Login for enjoy this app
+    <div >
+      <h1 className='letes'>
+      Welcome, and have a good day, Sr
+      </h1>
+      <Typography  variant='h2'>
+      You are not logged in
       </Typography>
       <Typography variant='h8'>
-        This app is only for developers
+      Log in to explore to the fullest
       </Typography>
     </div>
   );
