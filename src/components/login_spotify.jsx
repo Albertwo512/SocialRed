@@ -9,17 +9,19 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Loginspotify() {
 
   const [data, setData] = useState([]);
   const [randomNumber, setRandomNumber] = useState(null)
   const { user, isAuthenticated } = useAuth0();
+  const [open, setOpen] = React.useState(false);
 
   const theme = useTheme();
   
@@ -67,9 +69,26 @@ function Loginspotify() {
 
   return (
     <div>
-      <Container>
-        <button onClick={azar} className="button-85" role="button">Search</button>
-      </Container>
+      <br/>
+      <Box sx={{ width: '100%' }}>
+      <Collapse in={open}>
+        <Alert severity="info"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 1 }}
+        >
+      
+      
       <Container>
       <Card sx={{ maxWidth: 345 }}>
 
@@ -83,17 +102,6 @@ function Loginspotify() {
           Hello {user.given_name} {phrases[randomNumber]}
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <IconButton aria-label="previous">
-            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-          </IconButton>
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon sx={{ height: 38, width: 38 }} />
-          </IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-          </IconButton>
-        </Box>
       </Box>
       <CardMedia
         component="img"
@@ -104,6 +112,24 @@ function Loginspotify() {
     </Card>
       </Card>
       </Container>
+        </Alert>
+      </Collapse>
+      <Button
+      className="button-85"
+        disabled={open}
+        variant="error"
+        onClick={() => {
+          setOpen(true);
+          azar();
+        }}
+      >
+        Click Here
+      </Button>
+    </Box>
+
+
+
+      
     </div>
   )
 }
