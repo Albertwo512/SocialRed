@@ -29,6 +29,9 @@ function Questions() {
 
   return (
     <div>
+      <Typography  variant='h5'>
+      First of all, tell us how you're feeling today...
+      </Typography>
       {mostrarComponente1 ? (
         <FeelSad />
       ) : mostrarComponente2 ? (
