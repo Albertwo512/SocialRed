@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useAuth0 } from '@auth0/auth0-react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '/Users/albertoalv/Documents/Task Home/Login/parte1/src/buttons.css';
+import './components/buttons.css';
 import { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { useTheme } from '@mui/material/styles';
