@@ -3,7 +3,6 @@ import Profile from './components/profile';
 import { useAuth0 } from '@auth0/auth0-react'
 import NavBar from './components/navBar';
 import PreIndex from './components/preIndex';
-import '/Users/albertoalv/Documents/Task Home/Login/parte1/src/components/buttons.css';
 
 
 function App() {

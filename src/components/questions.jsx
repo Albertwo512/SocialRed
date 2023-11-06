@@ -1,6 +1,5 @@
 import React from 'react'
 import { Typography, selectClasses } from '@mui/material'
-import './buttons.css';
 import { useState, useEffect } from 'react';
 import MoodIcon from '@mui/icons-material/Mood';
 import SentimentNeutralIcon from '@mui/icons-material/SentimentNeutral';
@@ -38,7 +37,7 @@ function Questions() {
         <FeelGood/>
         ): (
         <div>
-          <Typography variant='h5'> First of all, tell us how you're feeling today...</Typography>
+          <Typography variant='h5'> </Typography>
           <div className="form-check form-check-inline">
             <SentimentVeryDissatisfiedIcon onClick={emotion1} sx={{ fontSize: 50 }} />
           </div>
