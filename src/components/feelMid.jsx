@@ -9,7 +9,7 @@ function FeelMid() {
   return (
     <div>
         <br/>
-        <Typography  className='letes' variant='h5'>No todos los dias son buenos {user.given_name} alguien quiere decirte algo...</Typography>
+        <Typography  className='letes' variant='h5'>Not every day is a good one {user.given_name} Someone wants to tell you something...</Typography>
         <br/>
 
         <Loginspotify/>            

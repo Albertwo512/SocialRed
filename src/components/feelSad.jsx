@@ -12,7 +12,7 @@ function FeelSad() {
   return (
     <div>
         <br/>
-        <Typography  className='letes' variant='h5'>Tranquilo {user.given_name} aqui tienes un video para que nos relajemos un poco</Typography>
+        <Typography  className='letes' variant='h5'>Relax, {user.given_name} here's a video for us to unwind a bit</Typography>
         <br/>
         <iframe className='object-fit-xxl-contain border rounded' src="https://www.youtube.com/embed/biblOyJB9EM"/>
         <br/>

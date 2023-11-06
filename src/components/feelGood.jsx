@@ -10,7 +10,7 @@ function FeelGood() {
   return (
     <div>
         <br/>
-        <Typography  className='letes' variant='h5'>Esa es la actitud {user.given_name} aqui hay algo que quieren decirte para que tu dia sea mucho mejor</Typography>
+        <Typography  className='letes' variant='h5'>That's the spirit! {user.given_name} Here's something they want to tell you to make your day much better</Typography>
         <br/>
 
         <Loginspotify/>            

@@ -13,14 +13,17 @@ import Typography from '@mui/material/Typography';
 import Alert from '@mui/material/Alert';
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
-import Button from '@mui/material/Button';
+import Button, { buttonClasses } from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
+import { click } from '@testing-library/user-event/dist/click';
+
+const settings = ['Logout'];
 
 function Loginspotify() {
 
   const [data, setData] = useState([]);
   const [randomNumber, setRandomNumber] = useState(null)
-  const { user, isAuthenticated } = useAuth0();
+  const {logout, user, isAuthenticated } = useAuth0();
   const [open, setOpen] = React.useState(false);
 
   const theme = useTheme();
@@ -64,6 +67,14 @@ function Loginspotify() {
     "Problem-solving is at the heart of web development.",
     "Never underestimate the impact of your code on people's lives."
   ];
+
+  const [clicks, setClicks] = useState(0);
+
+    // Esta función incrementa el estado "clicks" en 1 cada vez que se llama.
+  function sumClick() {
+      setClicks(clicks + 1);
+    }
+  
   
   
 
@@ -80,6 +91,7 @@ function Loginspotify() {
               size="small"
               onClick={() => {
                 setOpen(false);
+                sumClick();
               }}
             >
               <CloseIcon fontSize="inherit" />
@@ -107,7 +119,7 @@ function Loginspotify() {
         component="img"
         sx={{ width: 151 }}
         image={data[randomNumber]?.image}
-        alt="Live from space album cover"
+        alt="Card Motivation"
       />
     </Card>
       </Card>
@@ -125,7 +137,16 @@ function Loginspotify() {
       >
         Click Here
       </Button>
+      <br />
+      <br />
     </Box>
+
+    {clicks >= 1 && open == false ? (
+        <button className='button-85' onClick={() => logout()}>Thanks</button>
+      ) : (
+        <></>
+      )
+      }
 
 
 

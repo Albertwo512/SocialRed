@@ -38,7 +38,7 @@ function Questions() {
         <FeelGood/>
         ): (
         <div>
-          <Typography variant='h5'> Primero que nada, cuéntanos cómo te sientes el día de hoy...</Typography>
+          <Typography variant='h5'> First of all, tell us how you're feeling today...</Typography>
           <div className="form-check form-check-inline">
             <SentimentVeryDissatisfiedIcon onClick={emotion1} sx={{ fontSize: 50 }} />
           </div>
